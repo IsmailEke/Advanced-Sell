@@ -1,7 +1,7 @@
 ---
 Items:
-# Kullanim: ItemId:ItemMeta:ItemAd:Fiyat
-# Ornek: " - 1:0:Tas:18"
+# Usage: ItemId:ItemMeta:ItemName:Price
+# Example: " - 1:0:Stone:18"
  - 295:0:Buğday Tohumu:1
  - 458:0:Pancar Tohumu:1
  - 361:0:Balkabağı Tohumu:1
