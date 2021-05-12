@@ -10,7 +10,7 @@ use pocketmine\Player;
 class SellCommand extends Command {
 
 	public function __construct () {
-		parent::__construct("sell", "Selş Command!", "/sell");
+		parent::__construct("sell", "Sell Command!", "/sell");
 	}
 
 	/**
