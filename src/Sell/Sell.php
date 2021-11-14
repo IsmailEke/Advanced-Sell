@@ -23,7 +23,7 @@ class Sell extends PluginBase {
 
 	/**
 	 * @return Sell
-	ss */
+	 */
 	
 	public static function getInstance () : Sell {
 		return self::$instance;
