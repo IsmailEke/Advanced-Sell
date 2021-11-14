@@ -1,5 +1,9 @@
 <?php
 
+/*
+YouTube: Ismail Eke
+*/
+
 namespace Sell;
 
 use Sell\command\SellCommand;
@@ -19,11 +23,12 @@ class Sell extends PluginBase {
 
 	/**
 	 * @return Sell
-	 */
+	ss */
 	
 	public static function getInstance () : Sell {
 		return self::$instance;
 	}
+
 	public function onEnable () {
 		MainLogger::getLogger()->notice("Sell Plugin Online");
 		$this->saveResource("sellitems.yml");

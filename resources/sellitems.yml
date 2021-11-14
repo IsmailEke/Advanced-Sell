@@ -1,7 +1,7 @@
 ---
 Items:
 # Usage: ItemId:ItemMeta:ItemName:Price
-# Example: " - 1:0:Stone:18"
+# Example: " - 1:0:PrivateItemName:18"
  - 295:0:Buğday Tohumu:1
  - 458:0:Pancar Tohumu:1
  - 361:0:Balkabağı Tohumu:1

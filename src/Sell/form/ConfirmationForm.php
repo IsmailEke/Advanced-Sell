@@ -66,7 +66,7 @@ class ConfirmationForm implements Form {
 			$player->sendMessage($text . "§7Total Money Earned: §6" . $totalMoney);
 		}
 		if ($data == false) {
-			// NULL
+			// NULL PROCESS
 		}
 	}
 }
