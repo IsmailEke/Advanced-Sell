@@ -8,14 +8,11 @@ namespace Sell;
 
 use Sell\command\SellCommand;
 use pocketmine\plugin\PluginBase;
-use pocketmine\utils\MainLogger;
 use pocketmine\utils\Config;
 
 class Sell extends PluginBase {
-    
-	/** @var Sell */
 	
-	private static $instance;
+	private static Sell $instance;
 
 	public function onLoad () {
 		self::$instance = $this;
@@ -30,13 +27,13 @@ class Sell extends PluginBase {
 	}
 
 	public function onEnable () {
-		MainLogger::getLogger()->notice("Sell Plugin Online");
+		$this->getLogger()->notice("Sell Plugin Online");
 		$this->saveResource("sellitems.yml");
 		$this->getServer()->getCommandMap()->register("sell", new SellCommand());
 	}
 
 	public function onDisable () {
-		MainLogger::getLogger()->alert("Sell Plugin Offline");
+		$this->getLogger()->alert("Sell Plugin Offline");
 	}
 }
 ?>

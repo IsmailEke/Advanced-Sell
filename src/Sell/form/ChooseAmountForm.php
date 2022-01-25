@@ -2,26 +2,21 @@
 
 namespace Sell\form;
 
-use onebone\economyapi\EconomyAPI;
 use Sell\Sell;
+use onebone\economyapi\EconomyAPI;
 use pocketmine\form\Form;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\item\Item;
+use pocketmine\item\ItemFactory;
 use pocketmine\utils\Config;
 
 class ChooseAmountForm implements Form {
 
-	/** @var array */
-
-	public $itemData;
-
 	/**
-	 * 
 	 * @param array $itemData
 	 */
 	
-	public function __construct (array $itemData) {
-		$this->itemData = $itemData;
+	public function __construct (protected array $itemData) {
 	}
 	
 	/**
@@ -42,7 +37,6 @@ class ChooseAmountForm implements Form {
 	}
 
 	/**
-	 * 
 	 * @param Player $player
 	 * @param mixed $data
 	 * 
@@ -50,9 +44,7 @@ class ChooseAmountForm implements Form {
 	 */
 	
 	public function handleResponse (Player $player, $data) : void {
-		if (is_null($data)) {
-			return;
-		}
+		if (is_null($data)) return;
 		$id = [];
 		$meta = [];
 		$price = [];
@@ -68,10 +60,10 @@ class ChooseAmountForm implements Form {
 		        }
 		    }
 		    $totalPrice += $selectedAmount * $price[$index - 1];
-		    $player->getInventory()->removeItem(Item::get($id[$index - 1], $meta[$index - 1], $selectedAmount));
+		    $player->getInventory()->removeItem(ItemFactory::getInstance()->get($id[$index - 1], $meta[$index - 1], $selectedAmount));
 		}
 		EconomyAPI::getInstance()->addMoney($player, $totalPrice);
-		$player->sendMessage("§7Certain amount of items you selected have been sold.\n§7Amount of Money Earned:§6 " . $totalPrice);
+		$player->sendMessage("§7Certain amount of items you selected have been sold.\n§7Amount of Money Earned:§6 " . $totalPrice . " Dollar");
 	}
 }
 ?>

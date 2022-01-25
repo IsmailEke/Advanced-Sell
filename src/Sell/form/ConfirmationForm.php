@@ -5,8 +5,9 @@ namespace Sell\form;
 use onebone\economyapi\EconomyAPI;
 use Sell\Sell;
 use pocketmine\form\Form;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\item\Item;
+use pocketmine\item\ItemFactory;
 use pocketmine\utils\Config;
 
 class ConfirmationForm implements Form {
@@ -26,7 +27,6 @@ class ConfirmationForm implements Form {
 	}
 
 	/**
-	 * 
 	 * @param Player $player
 	 * @param mixed $data
 	 * 
@@ -34,10 +34,8 @@ class ConfirmationForm implements Form {
 	 */
 	
 	public function handleResponse (Player $player, $data) : void {
-		if (is_null($data)) {
-			return;
-		}
-		if ($data == true) {
+		if (is_null($data)) return;
+		if ($data) {
 			$id = [];
 			$meta = [];
 			$itemName = [];
@@ -52,21 +50,18 @@ class ConfirmationForm implements Form {
 				$price[] = explode(":", $items)[3];
 			}
 			foreach ($player->getInventory()->getContents() as $item) {
-				if (in_array($item->getId(), $id) and in_array($item->getDamage(), $meta)) {
+				if (in_array($item->getId(), $id) and in_array($item->getMeta(), $meta)) {
 				    $totalMoney += $item->getCount() * array_combine($id, $price)[$item->getId()];
 				    $confirmedItems[] = array_combine($id, $itemName)[$item->getId()];
-					$player->getInventory()->removeItem(Item::get($item->getId(), $item->getDamage(), $item->getCount()));
+					$player->getInventory()->removeItem(ItemFactory::getInstance()->get($item->getId(), $item->getMeta(), $item->getCount()));
 				}
 			}
-			EconomyAPI::getInstance()->addMoney($player, $totalMoney);
+			EconomyAPI::getInstance()->addMoney($player->getName(), $totalMoney);
 			$text = "§7- §6Items Sold §7-\n";
 			for ($i = 0; $i < count(array_unique($confirmedItems)); $i++) {
 			    $text .= "§7 => §6" . array_unique($confirmedItems)[array_keys(array_unique($confirmedItems))[$i]] . "\n";
 			}
-			$player->sendMessage($text . "§7Total Money Earned: §6" . $totalMoney);
-		}
-		if ($data == false) {
-			// NULL PROCESS
+			$player->sendMessage($text . "§7Total Money Earned: §6" . $totalMoney . " Dollar");
 		}
 	}
 }

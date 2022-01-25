@@ -4,7 +4,7 @@ namespace Sell\form;
 
 use Sell\Sell;
 use pocketmine\form\Form;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\utils\Config;
 
 class ItemInformationForm implements Form {
@@ -30,7 +30,6 @@ class ItemInformationForm implements Form {
     }
     
     /**
-	 * 
 	 * @param Player $player
 	 * @param mixed $data
 	 * 
@@ -38,9 +37,7 @@ class ItemInformationForm implements Form {
 	 */
 	
 	public function handleResponse (Player $player, $data) : void {
-		if (is_null($data)) {
-			return;
-		}
+		if (is_null($data)) return;
 	}
 }
 ?>

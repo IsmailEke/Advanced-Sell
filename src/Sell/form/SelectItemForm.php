@@ -5,26 +5,18 @@ namespace Sell\form;
 use Sell\Sell;
 use Sell\form\ChooseAmountForm;
 use pocketmine\form\Form;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\utils\Config;
 
 class SelectItemForm implements Form {
-
-    /** @var array */
    
-    public $itemData = [];
-    
-    /** @var Player */
-    
-    public $sender;
+    public array $itemData = [];
     
     /**
-     * 
      * @param Player $sender
      */
      
-    public function __construct (Player $sender) {
-        $this->sender = $sender;
+    public function __construct (protected Player $sender) {
     }
     
 	/**
@@ -43,7 +35,7 @@ class SelectItemForm implements Form {
 		foreach ($this->sender->getInventory()->getContents() as $item) {
 		    $index = array_search($item->getId(), $id);
 		    if ($index !== false) {
-		        if ($item->getId() == $id[$index] and $item->getDamage() == $meta[$index]) {
+		        if ($item->getId() == $id[$index] and $item->getMeta() == $meta[$index]) {
 		            $this->itemData[array_keys($this->itemData)[$index]] = $this->itemData[array_keys($this->itemData)[$index]] + $item->getCount();
 		        }
 		    }
@@ -66,7 +58,6 @@ class SelectItemForm implements Form {
 	}
 	
 	/**
-	 * 
 	 * @param Player $player
 	 * @param mixed $data
 	 * 
@@ -74,9 +65,7 @@ class SelectItemForm implements Form {
 	 */
 	
 	public function handleResponse (Player $player, $data) : void {
-		if (is_null($data)) {
-			return;
-		}
+		if (is_null($data)) return;
 		foreach ($data as $index => $boolean) {
 		    if ($boolean === false or $boolean === null) {
 		        unset($data[$index]);
