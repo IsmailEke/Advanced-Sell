@@ -26,13 +26,13 @@ class Sell extends PluginBase {
 		return self::$instance;
 	}
 
-	public function onEnable () {
+	public function onEnable () : void {
 		$this->getLogger()->notice("Sell Plugin Online");
 		$this->saveResource("sellitems.yml");
 		$this->getServer()->getCommandMap()->register("sell", new SellCommand());
 	}
 
-	public function onDisable () {
+	public function onDisable () : void {
 		$this->getLogger()->alert("Sell Plugin Offline");
 	}
 }
