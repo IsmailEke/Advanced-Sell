@@ -10,4 +10,4 @@
 - Easy to Use
 
 # NOTE
-Only Works on Minecraft 1.16.20 Version.
+Only Works on Minecraft 1.18 Version.
