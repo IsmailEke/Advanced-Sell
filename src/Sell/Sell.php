@@ -13,8 +13,12 @@ use pocketmine\utils\Config;
 class Sell extends PluginBase {
 	
 	private static Sell $instance;
-
-	public function onLoad () {
+        
+        /**
+         * @return void
+         */
+        
+	public function onLoad () : void {
 		self::$instance = $this;
 	}
 
