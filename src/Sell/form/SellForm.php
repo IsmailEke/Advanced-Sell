@@ -29,7 +29,7 @@ class SellForm implements Form {
 		"buttons" => [
 		["text" => "§cSell All Sellable Items\n§7Click It", "image" => ["type" => "path", "data" => "textures/ui/send_icon"]],
 		["text" => "§cSell Selectively\n§7Click It", "image" => ["type" => "path", "data" => "textures/ui/send_icon"]],
-		["text" => "§cItem Information\n§7Click Itt", "image" => ["type" => "path", "data" => "textures/ui/creative_icon"]]
+		["text" => "§cItem Information\n§7Click It", "image" => ["type" => "path", "data" => "textures/ui/creative_icon"]]
 		]
 		];
 	}
