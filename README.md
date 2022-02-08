@@ -1,6 +1,8 @@
 # Advanced-Sell
 Current Sell plugin. PM4 supported.
 
+![alt text](https://lh3.googleusercontent.com/3gD-81h2XulAFHYH5IpcKvtFg4o9-Gg8ght9YgNzYBqu1_4yJHefPHV0ZSy4jn24LZrtVudjWdkjW97v1OamJQ)
+
 # Commands
 - /sell
 
