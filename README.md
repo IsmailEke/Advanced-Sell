@@ -1,9 +1,7 @@
 # Advanced-Sell
 Current Sell plugin. PM4 supported.
 
-![icon](https://lh3.googleusercontent.com/3gD-81h2XulAFHYH5IpcKvtFg4o9-Gg8ght9YgNzYBqu1_4yJHefPHV0ZSy4jn24LZrtVudjWdkjW97v1OamJQ)
-
-# Commands
+# Command
 - /sell
 
 # Features
@@ -13,7 +11,7 @@ Current Sell plugin. PM4 supported.
 - Easy to Use
 
 # Dependencies
- - EconomyAPI
+ - EconomyAPI (I know this plugin removed, I will try to update soon...)
 
 # NOTE
 Only Works on Minecraft 1.18 Version.
